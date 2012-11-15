@@ -5,6 +5,7 @@
 		<class>com.innoq.sample.Event</class>
 		<class>com.innoq.sample.Booking</class>
 		<class>com.innoq.sample.Address</class>
+		<class>com.innoq.sample.Project</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mittach"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>

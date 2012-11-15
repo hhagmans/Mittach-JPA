@@ -18,6 +18,8 @@ public class JpaDemo {
 			//Event event1 = new Event("Pommes", "", Date.valueOf("2012-10-17"), 10, false);
 			em.getTransaction().begin();
 			user.setAddress(address);
+			Project project = new Project("Projekt1");
+			user.addProject(project);
 			em.persist(user);
 			//em.persist(event1);
 			em.getTransaction().commit();
@@ -30,9 +32,10 @@ public class JpaDemo {
 			for (Address a : em.createQuery(query, Address.class).getResultList())
 				System.out.println(a.getFullAddress());*/
 			query = "SELECT u FROM User u";
-			for (User u : em.createQuery(query, User.class).getResultList())
+			for (User u : em.createQuery(query, User.class).getResultList()){
 				System.out.println(u.getAddress());
-			
+				System.out.println(u.getProjects());
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			em.getTransaction().rollback();
