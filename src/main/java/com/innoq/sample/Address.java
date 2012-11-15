@@ -41,16 +41,12 @@ public class Address implements Serializable {
 		this.street = street;
 	}
 
-	public Address(){
+	public Address() {
 		
 	}
 	
 	public String getFullAddress() {
     	return this.country + ' ' + this.town + ' ' + this.street;
-    }
-	
-	public Long getId() {
-    	return this.id;
     }
 
 	public void setId(Long id) {
