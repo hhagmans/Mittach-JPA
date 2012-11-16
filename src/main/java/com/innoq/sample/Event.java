@@ -5,8 +5,11 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
@@ -27,6 +30,7 @@ private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Long id;
 	
 	private String title;
@@ -39,7 +43,7 @@ private static final long serialVersionUID = 1L;
     private String details;
     
     
-    @OneToMany(mappedBy="Event")
+    @OneToMany(mappedBy="event", cascade=CascadeType.ALL)
     private List<Booking> bookings;
     
     public Event(String title, String details, Date date, int slots, boolean vegetarian) { 
@@ -56,4 +60,12 @@ private static final long serialVersionUID = 1L;
     public String getTitle() {
     	return this.title;
     }
+
+	public List<Booking> getBookings() {
+		return bookings;
+	}
+
+	public void addBooking(Booking booking) {
+		this.bookings.add(booking);
+	}
 }

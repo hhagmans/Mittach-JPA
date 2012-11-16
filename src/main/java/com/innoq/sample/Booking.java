@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -20,14 +22,24 @@ private static final long serialVersionUID = 1L;
 	
 	@Id
 	@Column(name = "id")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Long id;
 
 	@ManyToOne
-	private Event Event;
+	private Event event;
 	
 	@ManyToOne
 	private User user;
 	private boolean vegetarian;
+	
+	public Booking(){
+		
+	}
 
+	public Booking(Event event, User user, boolean vegetarian){
+		this.event = event;
+		this.user = user;
+		this.vegetarian = vegetarian;
+	}
 
 }
