@@ -1,41 +1,57 @@
-/**
- * 
- */
 package com.innoq.sample;
 
-import static org.junit.Assert.*;
-
 import java.sql.Date;
-
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.junit.After;
-import org.junit.Before;
+import org.dbunit.DBTestCase;
+import org.dbunit.PropertiesBasedJdbcDatabaseTester;
+import org.dbunit.dataset.IDataSet;
+import org.dbunit.operation.DatabaseOperation;
 import org.junit.Test;
 
-public class JpaTest {
 
+public class DbTest extends DBTestCase{
 	EntityManagerFactory emf;
 	EntityManager em;
-	/**
-	 * @throws java.lang.Exception
-	 */
-	@Before
-	public void setUp() throws Exception {	
-		emf = Persistence.createEntityManagerFactory("myJPAProject");
-		em = emf.createEntityManager();
+	
+	 public DbTest(String name)
+	    {
+	        super( name );
+	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver" );
+	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:mysql://127.0.0.1:3306/mittach" );
+	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "root" );
+	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "" );
+		// System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_SCHEMA, "" );
+	    }
+	
+	 
+	 
+	@Override
+	protected DatabaseOperation getSetUpOperation() throws Exception {
+		return DatabaseOperation.CLEAN_INSERT;
 	}
 
-	@After
-    public void tearDown() {
-        em.clear();
+
+
+	@Override
+	protected DatabaseOperation getTearDownOperation() throws Exception {
+		return DatabaseOperation.DELETE_ALL;
+	}
+
+	@Override
+	protected void setUp() throws Exception
+    {
+        super.setUp();
+        emf = Persistence.createEntityManagerFactory("myJPAProject");
+		em = emf.createEntityManager();
+        
     }
 	
 	@Test
-	public void oneToOneTest() {
+	protected void testOneToOne(){
 		try {
 		Address address = new Address("Germany","Monheim","Krischerstr.");
 		User user = new User("Test",false);
@@ -72,7 +88,7 @@ public class JpaTest {
 	}
 	
 	@Test
-	public void oneToManyTest() {
+	public void testOneToMany() {
 		try {
 			Address address = new Address("Germany","Monheim","Krischerstr.");
 			User user = new User("Test",false);
@@ -118,7 +134,7 @@ public class JpaTest {
 	}
 	
 	@Test
-	public void manyToManyTest() {
+	public void testManyToMany() {
 		try {
 			Address address = new Address("Germany","Monheim","Krischerstr.");
 			User user = new User("Test",false);
@@ -183,5 +199,12 @@ public class JpaTest {
 			assertEquals(5,p.getUsers().size());
 		}
 	}
+
+	@Override
+	protected IDataSet getDataSet() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }
