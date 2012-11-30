@@ -1,6 +1,8 @@
 package com.innoq.sample;
 
+import java.io.FileInputStream;
 import java.sql.Date;
+import java.sql.SQLException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -8,22 +10,32 @@ import javax.persistence.Persistence;
 
 import org.dbunit.DBTestCase;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;
+import org.dbunit.database.DatabaseSequenceFilter;
+import org.dbunit.dataset.Column;
+import org.dbunit.dataset.DataSetException;
+import org.dbunit.dataset.FilteredDataSet;
 import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.ITable;
+import org.dbunit.dataset.ITableMetaData;
+import org.dbunit.dataset.xml.FlatXmlDataSet;
+import org.dbunit.ext.mssql.InsertIdentityOperation;
 import org.dbunit.operation.DatabaseOperation;
-import org.junit.Test;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 
 
 public class DbTest extends DBTestCase{
 	EntityManagerFactory emf;
 	EntityManager em;
 	
-	 public DbTest(String name)
-	    {
-	        super( name );
-	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver" );
-	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:mysql://127.0.0.1:3306/mittach" );
-	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "root" );
+	 public DbTest(String name) {
+		 	super( name );
+	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "org.h2.Driver" );
+	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:h2:tcp://localhost/db;MVCC=TRUE" );
+	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "sa" );
 	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "" );
+	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:h2:tcp://localhost/db;MVCC=TRUE?sessionVariables=FOREIGN_KEY_CHECKS=0" );
 		// System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_SCHEMA, "" );
 	    }
 	
@@ -44,14 +56,13 @@ public class DbTest extends DBTestCase{
 	@Override
 	protected void setUp() throws Exception
     {
-        super.setUp();
         emf = Persistence.createEntityManagerFactory("myJPAProject");
 		em = emf.createEntityManager();
         
     }
 	
-	@Test
-	protected void testOneToOne(){
+	
+	public void testOneToOne(){
 		try {
 		Address address = new Address("Germany","Monheim","Krischerstr.");
 		User user = new User("Test",false);
@@ -87,7 +98,6 @@ public class DbTest extends DBTestCase{
 		}
 	}
 	
-	@Test
 	public void testOneToMany() {
 		try {
 			Address address = new Address("Germany","Monheim","Krischerstr.");
@@ -133,7 +143,6 @@ public class DbTest extends DBTestCase{
 		}
 	}
 	
-	@Test
 	public void testManyToMany() {
 		try {
 			Address address = new Address("Germany","Monheim","Krischerstr.");
@@ -200,11 +209,14 @@ public class DbTest extends DBTestCase{
 		}
 	}
 
-	@Override
+    @Override
 	protected IDataSet getDataSet() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return new FilteredDataSet(
+	            new DatabaseSequenceFilter(
+	                    getConnection()), new FlatXmlDataSet(
+				            new FileInputStream("full.xml")));
 	}
+    
 	
 
 }
