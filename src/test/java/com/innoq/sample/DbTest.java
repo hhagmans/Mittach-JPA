@@ -1,5 +1,6 @@
 package com.innoq.sample;
 
+import java.io.FileInputStream;
 import java.sql.Date;
 
 import javax.persistence.EntityManager;
@@ -9,8 +10,8 @@ import javax.persistence.Persistence;
 import org.dbunit.DBTestCase;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;
 import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.xml.FlatXmlDataSet;
 import org.dbunit.operation.DatabaseOperation;
-import org.junit.Test;
 
 
 public class DbTest extends DBTestCase{
@@ -21,9 +22,9 @@ public class DbTest extends DBTestCase{
 	    {
 	        super( name );
 	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_DRIVER_CLASS, "com.mysql.jdbc.Driver" );
-	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:mysql://127.0.0.1:3306/mittach" );
+	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_CONNECTION_URL, "jdbc:mysql://127.0.0.1:3306/mittach?sessionVariables=FOREIGN_KEY_CHECKS=0" );
 	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_USERNAME, "root" );
-	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "" );
+	        System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_PASSWORD, "start123" );
 		// System.setProperty( PropertiesBasedJdbcDatabaseTester.DBUNIT_SCHEMA, "" );
 	    }
 	
@@ -44,14 +45,13 @@ public class DbTest extends DBTestCase{
 	@Override
 	protected void setUp() throws Exception
     {
-        super.setUp();
         emf = Persistence.createEntityManagerFactory("myJPAProject");
 		em = emf.createEntityManager();
         
     }
 	
-	@Test
-	protected void testOneToOne(){
+	
+	public void testOneToOne(){
 		try {
 		Address address = new Address("Germany","Monheim","Krischerstr.");
 		User user = new User("Test",false);
@@ -87,7 +87,7 @@ public class DbTest extends DBTestCase{
 		}
 	}
 	
-	@Test
+	
 	public void testOneToMany() {
 		try {
 			Address address = new Address("Germany","Monheim","Krischerstr.");
@@ -133,7 +133,7 @@ public class DbTest extends DBTestCase{
 		}
 	}
 	
-	@Test
+	
 	public void testManyToMany() {
 		try {
 			Address address = new Address("Germany","Monheim","Krischerstr.");
@@ -202,8 +202,7 @@ public class DbTest extends DBTestCase{
 
 	@Override
 	protected IDataSet getDataSet() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return new FlatXmlDataSet(new FileInputStream("full.xml"));
 	}
 	
 

@@ -1,35 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-  <ADDRESS id="1" country="Germany" town="Monheim" street="Krischerstr."/>
-  <ADDRESS id="2" country="Germany" town="Monheim" street="Krischerstr."/>
-  <ADDRESS id="3" country="Germany" town="Monheim" street="Krischerstr."/>
-  <BOOKING id="1" vegetarian="false" event_id="1" user_id="8"/>
-  <BOOKING id="2" vegetarian="false" event_id="1" user_id="6"/>
-  <BOOKING id="3" vegetarian="false" event_id="1" user_id="7"/>
-  <EVENT id="1" date="2012-10-17 00:00:00.0" details="" slots="10" title="Pommes" vegetarian_opt="false"/>
-  <PROJECT id="1" name="Projekt1"/>
-  <PROJECT id="2" name="Projekt2"/>
-  <USER id="1" isAdmin="false" shortname="Test5" address_id="1"/>
-  <USER id="2" isAdmin="false" shortname="Test3" address_id="1"/>
-  <USER id="3" isAdmin="false" shortname="Test2" address_id="1"/>
-  <USER id="4" isAdmin="false" shortname="Test4" address_id="1"/>
-  <USER id="5" isAdmin="false" shortname="Test" address_id="1"/>
-  <USER id="6" isAdmin="false" shortname="Test" address_id="2"/>
-  <USER id="7" isAdmin="false" shortname="Test2" address_id="2"/>
-  <USER id="8" isAdmin="false" shortname="Test3" address_id="2"/>
-  <USER id="9" isAdmin="false" shortname="Test4" address_id="3"/>
-  <USER id="10" isAdmin="false" shortname="Test5" address_id="3"/>
-  <USER id="11" isAdmin="false" shortname="Test" address_id="3"/>
-  <USER id="12" isAdmin="false" shortname="Test3" address_id="3"/>
-  <USER id="13" isAdmin="false" shortname="Test2" address_id="3"/>
-  <USER_PROJECT project_id="1" user_id="1"/>
-  <USER_PROJECT project_id="2" user_id="1"/>
-  <USER_PROJECT project_id="1" user_id="2"/>
-  <USER_PROJECT project_id="2" user_id="2"/>
-  <USER_PROJECT project_id="2" user_id="3"/>
-  <USER_PROJECT project_id="1" user_id="3"/>
-  <USER_PROJECT project_id="2" user_id="4"/>
-  <USER_PROJECT project_id="1" user_id="4"/>
-  <USER_PROJECT project_id="1" user_id="5"/>
-  <USER_PROJECT project_id="2" user_id="5"/>
+  <ADDRESS/>
+  <BOOKING/>
+  <EVENT/>
+  <PROJECT/>
+  <USER/>
+  <USER_PROJECT/>
 </dataset>

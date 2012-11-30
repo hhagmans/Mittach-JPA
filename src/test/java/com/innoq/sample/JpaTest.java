@@ -3,18 +3,13 @@
  */
 package com.innoq.sample;
 
-import static org.junit.Assert.*;
-
 import java.sql.Date;
-
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import static junit.framework.Assert.assertEquals;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 
 public class JpaTest {
 
@@ -23,18 +18,18 @@ public class JpaTest {
 	/**
 	 * @throws java.lang.Exception
 	 */
-	@Before
+	
 	public void setUp() throws Exception {	
 		emf = Persistence.createEntityManagerFactory("myJPAProject");
 		em = emf.createEntityManager();
 	}
 
-	@After
+	
     public void tearDown() {
         em.clear();
     }
 	
-	@Test
+	
 	public void oneToOneTest() {
 		try {
 		Address address = new Address("Germany","Monheim","Krischerstr.");
@@ -71,7 +66,7 @@ public class JpaTest {
 		}
 	}
 	
-	@Test
+	
 	public void oneToManyTest() {
 		try {
 			Address address = new Address("Germany","Monheim","Krischerstr.");
@@ -117,7 +112,7 @@ public class JpaTest {
 		}
 	}
 	
-	@Test
+	
 	public void manyToManyTest() {
 		try {
 			Address address = new Address("Germany","Monheim","Krischerstr.");
