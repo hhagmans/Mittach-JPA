@@ -7,8 +7,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.dbunit.database.DatabaseConnection;
+import org.dbunit.database.DatabaseSequenceFilter;
 import org.dbunit.database.IDatabaseConnection;
+import org.dbunit.dataset.FilteredDataSet;
 import org.dbunit.dataset.IDataSet;
+import org.dbunit.dataset.filter.ITableFilter;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
 
 
@@ -23,9 +26,11 @@ public class DatabaseExport {
 		EntityManager em = emf.createEntityManager();
 		try{
 		em.getTransaction().begin();
+
 		java.sql.Connection conn = em.unwrap(java.sql.Connection.class);
 		IDatabaseConnection connection = new DatabaseConnection(conn);
-		IDataSet fullDataSet = connection.createDataSet();
+		ITableFilter filter = new DatabaseSequenceFilter(connection);
+		IDataSet fullDataSet = new FilteredDataSet(filter, connection.createDataSet());
         FlatXmlDataSet.write(fullDataSet, new FileOutputStream("full.xml"));
         em.getTransaction().commit();
 		} catch (Exception e) {
