@@ -15,24 +15,16 @@ import javax.persistence.Persistence;
 
 import org.dbunit.DBTestCase;
 import org.dbunit.PropertiesBasedJdbcDatabaseTester;
-import org.dbunit.database.DatabaseSequenceFilter;
-import org.dbunit.dataset.Column;
-import org.dbunit.dataset.DataSetException;
-import org.dbunit.dataset.FilteredDataSet;
 import org.dbunit.dataset.IDataSet;
-import org.dbunit.dataset.ITable;
-import org.dbunit.dataset.ITableMetaData;
 import org.dbunit.dataset.xml.FlatXmlDataSet;
-import org.dbunit.ext.mssql.InsertIdentityOperation;
 import org.dbunit.operation.DatabaseOperation;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
 
 
 public class DbTest extends DBTestCase{
 	EntityManagerFactory emf;
 	EntityManager em;
+	
 	
 	 public DbTest(String name) {
 		 	super( name );
@@ -181,6 +173,7 @@ public class DbTest extends DBTestCase{
 		}
 	}
 	
+
 	public void testOneToMany() {
 		try {
 			Address address = new Address("Germany","Monheim","Krischerstr.");
@@ -226,6 +219,7 @@ public class DbTest extends DBTestCase{
 		}
 	}
 	
+
 	public void testManyToMany() {
 		try {
 			Address address = new Address("Germany","Monheim","Krischerstr.");
@@ -294,10 +288,7 @@ public class DbTest extends DBTestCase{
 
     @Override
 	protected IDataSet getDataSet() throws Exception {
-		return new FilteredDataSet(
-	            new DatabaseSequenceFilter(
-	                    getConnection()), new FlatXmlDataSet(
-				            new FileInputStream("full.xml")));
+		return new FlatXmlDataSet(new FileInputStream("full.xml"));
 	}
     
 	

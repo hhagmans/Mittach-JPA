@@ -14,8 +14,8 @@
 			<!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/mittach"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.password" value="start123"/>-->
-			<!-- property name="eclipselink.ddl-generation"      value="create-tables"/ -->
+			<property name="javax.persistence.jdbc.password" value="start123"/>
+			<property name="eclipselink.ddl-generation"      value="create-tables"/ -->
 			
 			<!-- Configure connection pool. -->
       		<property name="eclipselink.jdbc.connections.initial" value="1" />
