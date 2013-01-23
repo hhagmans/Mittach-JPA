@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_Mittach" version="3.0">
+  <display-name>Mittach</display-name>
+  
+  <servlet>
+  <servlet-name>Event</servlet-name>
+  <servlet-class>com.innoq.sample.Testservlet</servlet-class>
+</servlet>
+
+ <servlet-mapping>
+        <servlet-name>Event</servlet-name>
+        <url-pattern>/event/*</url-pattern>
+    </servlet-mapping>
+
+</web-app>

@@ -37,9 +37,17 @@ private static final long serialVersionUID = 1L;
 	}
 
 	public Booking(Event event, User user, boolean vegetarian){
-		this.event = event;
+		this.setEvent(event);
 		this.user = user;
 		this.vegetarian = vegetarian;
+	}
+
+	public Event getEvent() {
+		return event;
+	}
+
+	public void setEvent(Event event) {
+		this.event = event;
 	}
 
 }

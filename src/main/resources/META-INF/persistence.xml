@@ -7,9 +7,10 @@
 		<class>com.innoq.sample.Address</class>
 		<class>com.innoq.sample.Project</class>
 		<properties>
-		<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/db;MVCC=TRUE"/>
-			<property name="javax.persistence.jdbc.user" value="sa"/>
-			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+		<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:mytestdb"/>
+            <property name="javax.persistence.jdbc.user" value="SA"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
 			<!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.0.0.1:3306/mittach"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
