@@ -9,7 +9,7 @@
 
  <servlet-mapping>
         <servlet-name>Event</servlet-name>
-        <url-pattern>/event/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 </web-app>
