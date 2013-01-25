@@ -1,0 +1,1 @@
+{"id":3,"title":"JsonEvent","date":"Jan 12, 2013 12:00:00 AM","vegetarian_opt":false,"slots":-1,"details":"dhf","bookings":[]} 

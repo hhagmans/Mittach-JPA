@@ -60,6 +60,10 @@ private static final long serialVersionUID = 1L;
     public String getTitle() {
     	return this.title;
     }
+    
+    public Long getID() {
+    	return this.id;
+    }
 
 	public List<Booking> getBookings() {
 		return bookings;
@@ -68,4 +72,5 @@ private static final long serialVersionUID = 1L;
 	public void addBooking(Booking booking) {
 		this.bookings.add(booking);
 	}
+	
 }

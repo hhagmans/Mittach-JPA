@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ContentFilters</key>
+	<dict/>
+	<key>auto_connect</key>
+	<true/>
+	<key>data</key>
+	<dict>
+		<key>connection</key>
+		<dict>
+			<key>database</key>
+			<string>mittach</string>
+			<key>host</key>
+			<string>127.0.0.1</string>
+			<key>kcid</key>
+			<string>-1552691038884602214</string>
+			<key>name</key>
+			<string>test</string>
+			<key>rdbms_type</key>
+			<string>mysql</string>
+			<key>sslCACertFileLocation</key>
+			<string></string>
+			<key>sslCACertFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslCertificateFileLocation</key>
+			<string></string>
+			<key>sslCertificateFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>sslKeyFileLocation</key>
+			<string></string>
+			<key>sslKeyFileLocationEnabled</key>
+			<integer>0</integer>
+			<key>type</key>
+			<string>SPTCPIPConnection</string>
+			<key>useSSL</key>
+			<integer>0</integer>
+			<key>user</key>
+			<string>root</string>
+		</dict>
+		<key>session</key>
+		<dict>
+			<key>connectionEncoding</key>
+			<string>utf8</string>
+			<key>contentPageNumber</key>
+			<integer>1</integer>
+			<key>contentSortColIsAsc</key>
+			<true/>
+			<key>contentViewport</key>
+			<string>{{0, 0}, {976, 592}}</string>
+			<key>isToolbarVisible</key>
+			<true/>
+			<key>queries</key>
+			<string>CREATE TABLE `user_project` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `project_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;</string>
+			<key>table</key>
+			<string>Project</string>
+			<key>view</key>
+			<string>SP_VIEW_CUSTOMQUERY</string>
+			<key>windowVerticalDividerPosition</key>
+			<real>213</real>
+		</dict>
+	</dict>
+	<key>encrypted</key>
+	<false/>
+	<key>format</key>
+	<string>connection</string>
+	<key>queryFavorites</key>
+	<array/>
+	<key>queryHistory</key>
+	<array>
+		<string>CREATE TABLE `user_project` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `project_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8</string>
+		<string>CREATE TABLE `user_project` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `project_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8</string>
+		<string>CREATE TABLE `user_project` (
+  `project_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8</string>
+		<string>CREATE TABLE `user_project` (
+  `project_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
+)</string>
+		<string>CREATE TABLE `user_project` (
+  `project_id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL AUTO_INCREMENT,
+) DEFAULT CHARSET=utf8</string>
+		<string>CREATE TABLE `Project` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8</string>
+		<string># ************************************************************
+# Sequel Pro SQL dump
+# Version 3408
+#
+# http://www.sequelpro.com/
+# http://code.google.com/p/sequel-pro/
+#
+# Host: 127.0.0.1 (MySQL 5.5.16)
+# Datenbank: event_dev
+# Erstellungsdauer: 2011-12-08 17:14:35 +0100
+# ************************************************************
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+# Export von Tabelle auth_group
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `auth_group`;
+CREATE TABLE `auth_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(80) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+# Export von Tabelle auth_group_permissions
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `auth_group_permissions`;
+CREATE TABLE `auth_group_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `group_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `group_id` (`group_id`,`permission_id`),
+  KEY `auth_group_permissions_425ae3c4` (`group_id`),
+  KEY `auth_group_permissions_1e014c8f` (`permission_id`),
+  CONSTRAINT `group_id_refs_id_3cea63fe` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `permission_id_refs_id_5886d21f` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+# Export von Tabelle auth_message
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `auth_message`;
+CREATE TABLE `auth_message` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `message` longtext NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `auth_message_403f60f` (`user_id`),
+  CONSTRAINT `user_id_refs_id_650f49a6` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+# Export von Tabelle auth_permission
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `auth_permission`;
+CREATE TABLE `auth_permission` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `content_type_id` int(11) NOT NULL,
+  `codename` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `content_type_id` (`content_type_id`,`codename`),
+  KEY `auth_permission_1bb8f392` (`content_type_id`),
+  CONSTRAINT `content_type_id_refs_id_728de91f` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+LOCK TABLES `auth_permission` WRITE;
+/*!40000 ALTER TABLE `auth_permission` DISABLE KEYS */;
+INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`)
+VALUES
+	(1,'Can add permission',1,'add_permission'),
+	(2,'Can change permission',1,'change_permission'),
+	(3,'Can delete permission',1,'delete_permission'),
+	(4,'Can add group',2,'add_group'),
+	(5,'Can change group',2,'change_group'),
+	(6,'Can delete group',2,'delete_group'),
+	(7,'Can add user',3,'add_user'),
+	(8,'Can change user',3,'change_user'),
+	(9,'Can delete user',3,'delete_user'),
+	(10,'Can add message',4,'add_message'),
+	(11,'Can change message',4,'change_message'),
+	(12,'Can delete message',4,'delete_message'),
+	(13,'Can add content type',5,'add_contenttype'),
+	(14,'Can change content type',5,'change_contenttype'),
+	(15,'Can delete content type',5,'delete_contenttype'),
+	(16,'Can add session',6,'add_session'),
+	(17,'Can change session',6,'change_session'),
+	(18,'Can delete session',6,'delete_session'),
+	(19,'Can add site',7,'add_site'),
+	(20,'Can change site',7,'change_site'),
+	(21,'Can delete site',7,'delete_site'),
+	(22,'Can add redirect',8,'add_redirect'),
+	(23,'Can change redirect',8,'change_redirect'),
+	(24,'Can delete redirect',8,'delete_redirect'),
+	(25,'Can add poll',9,'add_poll'),
+	(26,'Can change poll',9,'change_poll'),
+	(27,'Can delete poll',9,'delete_poll'),
+	(28,'Can add choice',10,'add_choice'),
+	(29,'Can change choice',10,'change_choice'),
+	(30,'Can delete choice',10,'delete_choice'),
+	(31,'Can add comment',11,'add_comment'),
+	(32,'Can change comment',11,'change_comment'),
+	(33,'Can delete comment',11,'delete_comment'),
+	(34,'Can add talk',12,'add_talk'),
+	(35,'Can change talk',12,'change_talk'),
+	(36,'Can delete talk',12,'delete_talk'),
+	(37,'Can add event',13,'add_event'),
+	(38,'Can change event',13,'change_event'),
+	(39,'Can delete event',13,'delete_event'),
+	(40,'Can add log entry',14,'add_logentry'),
+	(41,'Can change log entry',14,'change_logentry'),
+	(42,'Can delete log entry',14,'delete_logentry');
+/*!40000 ALTER TABLE `auth_permission` ENABLE KEYS */;
+UNLOCK TABLES;
+# Export von Tabelle auth_user
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `auth_user`;
+CREATE TABLE `auth_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(30) NOT NULL,
+  `first_name` varchar(30) NOT NULL,
+  `last_name` varchar(30) NOT NULL,
+  `email` varchar(75) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `is_staff` tinyint(1) NOT NULL,
+  `is_active` tinyint(1) NOT NULL,
+  `is_superuser` tinyint(1) NOT NULL,
+  `last_login` datetime NOT NULL,
+  `date_joined` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+LOCK TABLES `auth_user` WRITE;
+/*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
+INSERT INTO `auth_user` (`id`, `username`, `first_name`, `last_name`, `email`, `password`, `is_staff`, `is_active`, `is_superuser`, `last_login`, `date_joined`)
+VALUES
+	(1,'hendrikh','','','hendrikh@innoq.com','sha1$145b7$8ce57a99dd70dede49aab7611b2b2a5e4bdabdc0',1,1,1,'2011-12-08 10:00:31','2011-12-08 10:00:14');
+/*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
+UNLOCK TABLES;
+# Export von Tabelle auth_user_groups
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `auth_user_groups`;
+CREATE TABLE `auth_user_groups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`,`group_id`),
+  KEY `auth_user_groups_403f60f` (`user_id`),
+  KEY `auth_user_groups_425ae3c4` (`group_id`),
+  CONSTRAINT `user_id_refs_id_7ceef80f` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `group_id_refs_id_f116770` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+# Export von Tabelle auth_user_user_permissions
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `auth_user_user_permissions`;
+CREATE TABLE `auth_user_user_permissions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `permission_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `user_id` (`user_id`,`permission_id`),
+  KEY `auth_user_user_permissions_403f60f` (`user_id`),
+  KEY `auth_user_user_permissions_1e014c8f` (`permission_id`),
+  CONSTRAINT `user_id_refs_id_dfbab7d` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `permission_id_refs_id_67e79cb` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+# Export von Tabelle django_admin_log
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `django_admin_log`;
+CREATE TABLE `django_admin_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `action_time` datetime NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `content_type_id` int(11) DEFAULT NULL,
+  `object_id` longtext,
+  `object_repr` varchar(200) NOT NULL,
+  `action_flag` smallint(5) unsigned NOT NULL,
+  `change_message` longtext NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `django_admin_log_403f60f` (`user_id`),
+  KEY `django_admin_log_1bb8f392` (`content_type_id`),
+  CONSTRAINT `user_id_refs_id_c8665aa` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `content_type_id_refs_id_288599e6` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+LOCK TABLES `django_admin_log` WRITE;
+/*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
+INSERT INTO `django_admin_log` (`id`, `action_time`, `user_id`, `content_type_id`, `object_id`, `object_repr`, `action_flag`, `change_message`)
+VALUES
+	(1,'2011-12-08 10:01:10',1,13,'1','Event1',1,''),
+	(2,'2011-12-08 10:02:33',1,12,'1','Talk1',2,'Added poll \"Question1\". Added poll \"Question2\". Added poll \"Question3\". Added comment \"War gut\".'),
+	(3,'2011-12-08 10:03:10',1,9,'1','Question1',2,'Added choice \"Q1C1\". Added choice \"Q1C2\". Added choice \"Q1C3\".'),
+	(4,'2011-12-08 10:03:45',1,9,'2','Question2',2,'Added choice \"Q2C1\". Added choice \"Q2C2\". Added choice \"Q2C3\".'),
+	(5,'2011-12-08 10:04:06',1,9,'3','Question3',2,'Added choice \"Q3C1\". Added choice \"Q3C2\". Added choice \"Q3C3\".');
+/*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
+UNLOCK TABLES;
+# Export von Tabelle django_content_type
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `django_content_type`;
+CREATE TABLE `django_content_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `app_label` varchar(100) NOT NULL,
+  `model` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `app_label` (`app_label`,`model`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+LOCK TABLES `django_content_type` WRITE;
+/*!40000 ALTER TABLE `django_content_type` DISABLE KEYS */;
+INSERT INTO `django_content_type` (`id`, `name`, `app_label`, `model`)
+VALUES
+	(1,'permission','auth','permission'),
+	(2,'group','auth','group'),
+	(3,'user','auth','user'),
+	(4,'message','auth','message'),
+	(5,'content type','contenttypes','contenttype'),
+	(6,'session','sessions','session'),
+	(7,'site','sites','site'),
+	(8,'redirect','redirects','redirect'),
+	(9,'poll','polls','poll'),
+	(10,'choice','polls','choice'),
+	(11,'comment','polls','comment'),
+	(12,'talk','talks','talk'),
+	(13,'event','events','event'),
+	(14,'log entry','admin','logentry');
+/*!40000 ALTER TABLE `django_content_type` ENABLE KEYS */;
+UNLOCK TABLES;
+# Export von Tabelle django_redirect
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `django_redirect`;
+CREATE TABLE `django_redirect` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `site_id` int(11) NOT NULL,
+  `old_path` varchar(200) NOT NULL,
+  `new_path` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `site_id` (`site_id`,`old_path`),
+  KEY `django_redirect_6223029` (`site_id`),
+  KEY `django_redirect_516c23f0` (`old_path`),
+  CONSTRAINT `site_id_refs_id_4aa27aa6` FOREIGN KEY (`site_id`) REFERENCES `django_site` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+# Export von Tabelle django_session
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `django_session`;
+CREATE TABLE `django_session` (
+  `session_key` varchar(40) NOT NULL,
+  `session_data` longtext NOT NULL,
+  `expire_date` datetime NOT NULL,
+  PRIMARY KEY (`session_key`),
+  KEY `django_session_3da3d3d8` (`expire_date`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+LOCK TABLES `django_session` WRITE;
+/*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`)
+VALUES
+	('247e127790cddd2b79adc6fd3bae98f3','MGM1MGE5NGM4NDY3ZmVlYjQzMWVjZDFjMjRiYzYxNjc5N2NlNTYzYTqAAn1xAShVEl9hdXRoX3Vz\nZXJfYmFja2VuZHECVSlkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZHED\nVQ1fYXV0aF91c2VyX2lkcQSKAQF1Lg==\n','2011-12-22 10:00:31');
+/*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
+UNLOCK TABLES;
+# Export von Tabelle django_site
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `django_site`;
+CREATE TABLE `django_site` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `domain` varchar(100) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+LOCK TABLES `django_site` WRITE;
+/*!40000 ALTER TABLE `django_site` DISABLE KEYS */;
+INSERT INTO `django_site` (`id`, `domain`, `name`)
+VALUES
+	(1,'example.com','example.com');
+/*!40000 ALTER TABLE `django_site` ENABLE KEYS */;
+UNLOCK TABLES;
+# Export von Tabelle events_event
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `events_event`;
+CREATE TABLE `events_event` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `pub_date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+LOCK TABLES `events_event` WRITE;
+/*!40000 ALTER TABLE `events_event` DISABLE KEYS */;
+INSERT INTO `events_event` (`id`, `name`, `pub_date`)
+VALUES
+	(1,'Event1','2011-12-08 17:00:44');
+/*!40000 ALTER TABLE `events_event` ENABLE KEYS */;
+UNLOCK TABLES;
+# Export von Tabelle polls_choice
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `polls_choice`;
+CREATE TABLE `polls_choice` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `poll_id` int(11) NOT NULL,
+  `choice` varchar(200) NOT NULL,
+  `votes` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `polls_choice_763e883` (`poll_id`),
+  CONSTRAINT `poll_id_refs_id_5d896c23` FOREIGN KEY (`poll_id`) REFERENCES `polls_poll` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+LOCK TABLES `polls_choice` WRITE;
+/*!40000 ALTER TABLE `polls_choice` DISABLE KEYS */;
+INSERT INTO `polls_choice` (`id`, `poll_id`, `choice`, `votes`)
+VALUES
+	(1,1,'Q1C1',2),
+	(2,1,'Q1C2',4),
+	(3,1,'Q1C3',5),
+	(4,2,'Q2C1',0),
+	(5,2,'Q2C2',1),
+	(6,2,'Q2C3',4),
+	(7,3,'Q3C1',2),
+	(8,3,'Q3C2',0),
+	(9,3,'Q3C3',4);
+/*!40000 ALTER TABLE `polls_choice` ENABLE KEYS */;
+UNLOCK TABLES;
+# Export von Tabelle polls_comment
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `polls_comment`;
+CREATE TABLE `polls_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `talk_id` int(11) NOT NULL,
+  `comment` varchar(1000) NOT NULL,
+  `pub_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `polls_comment_6531b1a6` (`talk_id`),
+  CONSTRAINT `talk_id_refs_id_32abd5d2` FOREIGN KEY (`talk_id`) REFERENCES `talks_talk` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+LOCK TABLES `polls_comment` WRITE;
+/*!40000 ALTER TABLE `polls_comment` DISABLE KEYS */;
+INSERT INTO `polls_comment` (`id`, `talk_id`, `comment`, `pub_date`)
+VALUES
+	(1,1,'War gut','2011-12-08 17:02:29');
+/*!40000 ALTER TABLE `polls_comment` ENABLE KEYS */;
+UNLOCK TABLES;
+# Export von Tabelle polls_poll
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `polls_poll`;
+CREATE TABLE `polls_poll` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `talk_id` int(11) NOT NULL,
+  `question` varchar(200) NOT NULL,
+  `classification_top` varchar(200) NOT NULL,
+  `classification_low` varchar(200) NOT NULL,
+  `pub_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `polls_poll_6531b1a6` (`talk_id`),
+  CONSTRAINT `talk_id_refs_id_38b552dd` FOREIGN KEY (`talk_id`) REFERENCES `talks_talk` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+LOCK TABLES `polls_poll` WRITE;
+/*!40000 ALTER TABLE `polls_poll` DISABLE KEYS */;
+INSERT INTO `polls_poll` (`id`, `talk_id`, `question`, `classification_top`, `classification_low`, `pub_date`)
+VALUES
+	(1,1,'Question1','interessant','uninteressant','2011-12-08 17:02:12'),
+	(2,1,'Question2','gut','schlecht','2011-12-08 17:02:13'),
+	(3,1,'Question3','interessant','uninteressant','2011-12-08 17:02:16');
+/*!40000 ALTER TABLE `polls_poll` ENABLE KEYS */;
+UNLOCK TABLES;
+# Export von Tabelle talks_talk
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `talks_talk`;
+CREATE TABLE `talks_talk` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `event_id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `pub_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `talks_talk_1647d06b` (`event_id`),
+  CONSTRAINT `event_id_refs_id_6e9269ff` FOREIGN KEY (`event_id`) REFERENCES `events_event` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+LOCK TABLES `talks_talk` WRITE;
+/*!40000 ALTER TABLE `talks_talk` DISABLE KEYS */;
+INSERT INTO `talks_talk` (`id`, `event_id`, `name`, `pub_date`)
+VALUES
+	(1,1,'Talk1','2011-12-08 17:01:00'),
+	(2,1,'Talk2','2011-12-08 17:01:02'),
+	(3,1,'Talk3','2011-12-08 17:01:04');
+/*!40000 ALTER TABLE `talks_talk` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */</string>
+		<string>DROP TABLE `polls_choice`;
+DROP TABLE `polls_poll`;
+CREATE TABLE `polls_poll` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `talk_id` integer NOT NULL,
+    `question` varchar(200) NOT NULL,
+    `pub_date` datetime NOT NULL
+);
+ALTER TABLE `polls_poll` ADD CONSTRAINT `talk_id_refs_id_38b552dd` FOREIGN KEY (`talk_id`) REFERENCES `talks_talk` (`id`);
+CREATE TABLE `polls_choice` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `poll_id` integer NOT NULL,
+    `choice` varchar(200) NOT NULL,
+    `votes` integer NOT NULL
+);
+ALTER TABLE `polls_choice` ADD CONSTRAINT `poll_id_refs_id_5d896c23` FOREIGN KEY (`poll_id`) REFERENCES `polls_poll` (`id`)</string>
+		<string>CREATE TABLE `polls_poll` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `talk_id` integer NOT NULL,
+    `question` varchar(200) NOT NULL,
+    `pub_date` datetime NOT NULL
+)</string>
+		<string>ALTER TABLE `polls_poll` ADD CONSTRAINT `vortrag_id_refs_id_52c3ded7` FOREIGN KEY (`vortrag_id`) REFERENCES `vortrag_vortrag` (`id`)</string>
+		<string>ALTER TABLE `polls_choice` ADD CONSTRAINT `poll_id_refs_id_5d896c23` FOREIGN KEY (`poll_id`) REFERENCES `polls_poll` (`id`)</string>
+		<string>CREATE TABLE `polls_poll` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `vortrag_id` integer NOT NULL,
+    `question` varchar(200) NOT NULL,
+    `pub_date` datetime NOT NULL
+)</string>
+		<string>CREATE TABLE `polls_choice` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `poll_id` integer NOT NULL,
+    `choice` varchar(200) NOT NULL,
+    `votes` integer NOT NULL
+)</string>
+		<string>DROP TABLE `polls_choice`;
+DROP TABLE `polls_poll`</string>
+		<string>DROP TABLE `polls_choice`;
+DROP TABLE `polls_poll`;
+CREATE TABLE `polls_choice` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `poll_id` integer NOT NULL,
+    `choice` varchar(200) NOT NULL,
+    `votes` integer NOT NULL
+);
+ALTER TABLE `polls_choice` ADD CONSTRAINT `poll_id_refs_id_5d896c23` FOREIGN KEY (`poll_id`) REFERENCES `polls_poll` (`id`)</string>
+		<string>DROP TABLE `polls_poll`</string>
+	</array>
+	<key>rdbms_type</key>
+	<string>mysql</string>
+	<key>rdbms_version</key>
+	<string>5.5.16</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

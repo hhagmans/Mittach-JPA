@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_Mittach" version="3.0">
   <display-name>Mittach</display-name>
-  
   <servlet>
-  <servlet-name>Event</servlet-name>
-  <servlet-class>com.innoq.sample.Testservlet</servlet-class>
-</servlet>
-
- <servlet-mapping>
-        <servlet-name>Event</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
+    <servlet-name>Event</servlet-name>
+    <servlet-class>com.innoq.sample.Testservlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Event</servlet-name>
+    <url-pattern>/event</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>File</servlet-name>
+    <servlet-class>com.innoq.sample.Fileservlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>File</servlet-name>
+    <url-pattern>/App/fileservlet/mytext.txt</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>FileUpload</servlet-name>
+    <servlet-class>com.innoq.sample.UploadFileservlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FileUpload</servlet-name>
+    <url-pattern>/App/fileservlet/upload</url-pattern>
+  </servlet-mapping>
+  
+  <filter>
+    <filter-name>IDFilter</filter-name>
+    <filter-class>com.innoq.sample.IDFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>IDFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 </web-app>

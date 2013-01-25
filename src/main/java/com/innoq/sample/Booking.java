@@ -49,5 +49,9 @@ private static final long serialVersionUID = 1L;
 	public void setEvent(Event event) {
 		this.event = event;
 	}
+	
+	public void deleteEvent() {
+		this.event = null;
+	}
 
 }
