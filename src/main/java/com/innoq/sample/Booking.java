@@ -45,6 +45,10 @@ private static final long serialVersionUID = 1L;
 	public Event getEvent() {
 		return event;
 	}
+	
+	public User getUser() {
+		return user;
+	}
 
 	public void setEvent(Event event) {
 		this.event = event;

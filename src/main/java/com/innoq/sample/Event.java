@@ -69,6 +69,26 @@ private static final long serialVersionUID = 1L;
 		return bookings;
 	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public boolean isVegetarian_opt() {
+		return vegetarian_opt;
+	}
+
+	public int getSlots() {
+		return slots;
+	}
+
+	public String getDetails() {
+		return details;
+	}
+
+	public void setBookings(List<Booking> bookings) {
+		this.bookings = bookings;
+	}
+
 	public void addBooking(Booking booking) {
 		this.bookings.add(booking);
 	}
