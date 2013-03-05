@@ -46,6 +46,9 @@ class JavaSwing1{
 	
 	public void showEvent(String eventID, JFrame oldjfrm, JFrame newjfrm){
 		JList auswahl = listEvent(eventID);
+		if (newjfrm.getContentPane().getComponentCount() > 1) {
+		newjfrm.getContentPane().remove(1);
+		}
         newjfrm.getContentPane().add(auswahl);
         oldjfrm.setVisible(false);
     	newjfrm.setVisible(true);
@@ -96,7 +99,8 @@ class JavaSwing1{
 		jfrm.setVisible(true);
 
 		final JTextField eventIDField = new JTextField();
-		eventIDField.setSize(50, 20);
+		eventIDField.setPreferredSize(new Dimension(50,20));
+		
         JButton eventButton = new JButton("Zeige Event");
         ActionListener eventlist = new ActionListener() {
             public void actionPerformed( ActionEvent e ) {
@@ -116,16 +120,12 @@ class JavaSwing1{
           jfrm.getContentPane().add(eventIDField);
         jfrm.getContentPane().add(eventButton);
 
-		//set size
 		jfrm2.setSize(400,400);
 
-		//wen closed?
 		jfrm2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//set the layout
 		jfrm2.setLayout(new FlowLayout());
 
-		//set visible
 		jfrm2.setVisible(false);
 		
 		jfrm2.getContentPane().add(homeButton);
