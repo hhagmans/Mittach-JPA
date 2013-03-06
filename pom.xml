@@ -93,6 +93,16 @@
 	<groupId>ch.qos.logback</groupId>
 	<artifactId>logback-classic</artifactId>
 	<version>1.0.9</version>
-</dependency>  
+</dependency> 
+<dependency>
+	<groupId>org.apache.httpcomponents</groupId>
+	<artifactId>httpclient</artifactId>
+	<version>4.2.3</version>
+</dependency>
+<dependency>
+	<groupId>org.apache.httpcomponents</groupId>
+	<artifactId>httpmime</artifactId>
+	<version>4.2.3</version>
+</dependency>
 	</dependencies>
 </project>
