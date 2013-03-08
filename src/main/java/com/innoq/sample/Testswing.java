@@ -47,6 +47,19 @@ class JavaSwing1{
 	      return result;
 	   }
 	
+	public JFrame initializeFrame(String name,Dimension size, Point location){
+		final JFrame jfrm=new JFrame(name);
+
+		jfrm.setSize(size);
+		
+		jfrm.setLocation(location);
+		
+		jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		jfrm.setLayout(new FlowLayout());
+		return jfrm;
+	}
+	
 	public void home(JFrame jfrm, JFrame jfrm2){
 			jfrm.setVisible(true);
 	    	jfrm2.setVisible(false);
@@ -145,17 +158,8 @@ class JavaSwing1{
 	public void display(){
 		
 		
-		final JFrame jfrm=new JFrame("Mittach Application Client");
-        final JFrame jfrm2=new JFrame("Event");
-
-		jfrm.setSize(400,100);
-		
-		jfrm.setLocation(500, 350);
-		
-		jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		jfrm.setLayout(new FlowLayout());
-
+		final JFrame jfrm=initializeFrame("Mittach Application Client", new Dimension(400,100), new Point(500, 350));
+        final JFrame jfrm2=initializeFrame("Event", new Dimension(400,170), new Point(500, 350));
 
 		final JTextField eventIDField = new JTextField();
 		eventIDField.setPreferredSize(new Dimension(50,20));
@@ -208,14 +212,6 @@ class JavaSwing1{
         jfrm.getContentPane().add(eventButton);
         jfrm.getContentPane().add(uploadButton);
         jfrm.getContentPane().add(saveButton);
-        
-		jfrm2.setSize(400,170);
-		
-		jfrm2.setLocation(500, 350);
-
-		jfrm2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		jfrm2.setLayout(new FlowLayout());
 		
 		jfrm2.getContentPane().add(homeButton);
 		
