@@ -3,24 +3,13 @@ package com.innoq.sample;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.ObjectOutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.swing.*;
 
 import org.apache.http.HttpEntity;
@@ -156,20 +145,17 @@ class JavaSwing1{
 	public void display(){
 		
 		
-		final JFrame jfrm=new JFrame("Mittach Application");
-        final JFrame jfrm2=new JFrame("Mittach Application");
+		final JFrame jfrm=new JFrame("Mittach Application Client");
+        final JFrame jfrm2=new JFrame("Event");
 
-		//set size
-		jfrm.setSize(400,400);
-
-		//wen closed?
+		jfrm.setSize(400,100);
+		
+		jfrm.setLocation(500, 350);
+		
 		jfrm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		//set the layout
 		jfrm.setLayout(new FlowLayout());
 
-		//set visible
-		jfrm.setVisible(true);
 
 		final JTextField eventIDField = new JTextField();
 		eventIDField.setPreferredSize(new Dimension(50,20));
@@ -223,15 +209,18 @@ class JavaSwing1{
         jfrm.getContentPane().add(uploadButton);
         jfrm.getContentPane().add(saveButton);
         
-		jfrm2.setSize(400,400);
+		jfrm2.setSize(400,170);
+		
+		jfrm2.setLocation(500, 350);
 
 		jfrm2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		jfrm2.setLayout(new FlowLayout());
-
-		jfrm2.setVisible(false);
 		
 		jfrm2.getContentPane().add(homeButton);
+		
+		jfrm2.setVisible(false);
+		jfrm.setVisible(true);
 
 	}
 	public static void main(String j[]){
@@ -240,6 +229,7 @@ class JavaSwing1{
 			public void run(){
 				JavaSwing1 obj=new JavaSwing1();
 				obj.display();
+				
 			}
 		});
 	}
