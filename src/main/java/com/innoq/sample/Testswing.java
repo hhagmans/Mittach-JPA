@@ -186,7 +186,7 @@ class JavaSwing1{
             };
             uploadButton.addActionListener( fileUpload );
             
-          JButton homeButton = new JButton("Zurück zu Home");
+          JButton homeButton = new JButton("Zurueck zu Home");
           ActionListener home = new ActionListener() {
               public void actionPerformed( ActionEvent e ) {
               	home(jfrm, jfrm2);
